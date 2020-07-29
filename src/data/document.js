@@ -6,7 +6,30 @@ const EMAIL = "docx@docx.com";
 export class DocumentCreator {
     // tslint:disable-next-line: typedef
     create([experiences, educations, skills, achivements]) {
-        const document = new Document();
+        const document = new Document({
+            styles: {
+                paragraphStyles: [
+                    {
+                        id: "normalPara",
+                        name: "Normal Para",
+                        basedOn: "Normal",
+                        next: "Normal",
+                        quickFormat: true,
+                        run: {
+                            font: "Calibri",
+                            size: 26,
+                            bold: true,
+                            color: "red"
+                        },
+                        paragraph: {
+                            spacing: { line: 276, before: 20 * 72 * 0.1, after: 20 * 72 * 0.05 },
+                            rightTabStop: TabStopPosition.MAX,
+                            leftTabStop: 453.543307087,
+                        },
+                    },
+                ]
+            }
+        });
 
         document.addSection({
             children: [
@@ -91,6 +114,7 @@ export class DocumentCreator {
             text: text,
             heading: HeadingLevel.HEADING_1,
             thematicBreak: true,
+            style: "normalPara",
         });
     }
 
