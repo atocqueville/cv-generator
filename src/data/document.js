@@ -1,4 +1,4 @@
-import { AlignmentType, Document, HeadingLevel, Paragraph, TabStopPosition, TabStopType, TextRun, Table, TableRow, TableCell } from "docx";
+import { AlignmentType, Document, HeadingLevel, Paragraph, TabStopPosition, TabStopType, TextRun, Table, TableRow, TableCell, WidthType } from "docx";
 const PHONE_NUMBER = "07534563401";
 const PROFILE_URL = "https://www.linkedin.com/in/dolan1";
 const EMAIL = "docx@docx.com";
@@ -34,6 +34,13 @@ export class DocumentCreator {
         const tableRow = new TableRow({
             children: [
                 new TableCell({
+                    width: {
+                        size: 35,
+                        type: WidthType.PERCENTAGE,
+                    },
+                    shading: {
+                        fill: "#05BEC0"
+                    },
                     children: [
                         new Paragraph({
                             text: "Dolan Miu",
@@ -43,6 +50,10 @@ export class DocumentCreator {
                     ],
                 }),
                 new TableCell({
+                    width: {
+                        size: 65,
+                        type: WidthType.PERCENTAGE,
+                    },
                     children: [
                         this.createHeading("Education"),
                         ...educations
@@ -61,44 +72,6 @@ export class DocumentCreator {
                                 return arr;
                             })
                             .reduce((prev, curr) => prev.concat(curr), []),
-                        this.createHeading("Experience"),
-                        ...experiences
-                            .map((position) => {
-                                const arr = [];
-        
-                                arr.push(
-                                    this.createInstitutionHeader(
-                                        position.company.name,
-                                        this.createPositionDateText(position.startDate, position.endDate, position.isCurrent),
-                                    ),
-                                );
-                                arr.push(this.createRoleText(position.title));
-        
-                                const bulletPoints = this.splitParagraphIntoBullets(position.summary);
-        
-                                bulletPoints.forEach((bulletPoint) => {
-                                    arr.push(this.createBullet(bulletPoint));
-                                });
-        
-                                return arr;
-                            })
-                            .reduce((prev, curr) => prev.concat(curr), []),
-                        this.createHeading("Skills, Achievements and Interests"),
-                        this.createSubHeading("Skills"),
-                        this.createSkillList(skills),
-                        this.createSubHeading("Achievements"),
-                        ...this.createAchivementsList(achivements),
-                        this.createSubHeading("Interests"),
-                        this.createInterests("Programming, Technology, Music Production, Web Design, 3D Modelling, Dancing."),
-                        this.createHeading("References"),
-                        new Paragraph(
-                            "Dr. Dean Mohamedally Director of Postgraduate Studies Department of Computer Science, University College London Malet Place, Bloomsbury, London WC1E d.mohamedally@ucl.ac.uk",
-                        ),
-                        new Paragraph("More references upon request"),
-                        new Paragraph({
-                            text: "This CV was generated in real-time based on my Linked-In profile from my personal website www.dolan.bio.",
-                            alignment: AlignmentType.CENTER,
-                        }),
                     ],
                 }),
             ],
