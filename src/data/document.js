@@ -1,5 +1,5 @@
 import * as fs from "fs";
-import { AlignmentType, Media, Document, HeadingLevel, Paragraph, TabStopPosition, TabStopType, TextRun, Table, TableRow, TableCell, WidthType } from "docx";
+import { AlignmentType, Media, Document, HeightRule, HeadingLevel, Paragraph, TabStopPosition, TabStopType, TextRun, Table, TableRow, TableCell, WidthType } from "docx";
 const PHONE_NUMBER = "07534563401";
 const PROFILE_URL = "https://www.linkedin.com/in/dolan1";
 const EMAIL = "docx@docx.com";
@@ -52,6 +52,15 @@ export class DocumentCreator {
               color: "white"
             },
           },
+          {
+            id: "emptyPara",
+            name: "empty",
+            basedOn: "Normal",
+            next: "Normal",
+            run: {
+              size: 1,
+            },
+          },
         ]
       }
     });
@@ -61,6 +70,11 @@ export class DocumentCreator {
     });
 
     const tableRow = new TableRow({
+      height: {
+        height: 16800,
+        rule: HeightRule.EXACT,
+        cantSplit: true
+      },
       children: [
         new TableCell({
           width: {
@@ -143,7 +157,12 @@ export class DocumentCreator {
         headers: null,
         footers: null
       },
-      children: [table],
+      children: [
+        table,
+        new Paragraph({
+          style: "emptyPara",
+        })
+      ],
     });
 
     return document;
