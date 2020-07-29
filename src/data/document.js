@@ -36,8 +36,8 @@ export class DocumentCreator {
                 new TableCell({
                     children: [
                         new Paragraph({
-                        text: "Dolan Miu",
-                        heading: HeadingLevel.TITLE,
+                            text: "Dolan Miu",
+                            heading: HeadingLevel.TITLE,
                         }),
                         this.createContactInfo(PHONE_NUMBER, PROFILE_URL, EMAIL)
                     ],
@@ -110,6 +110,14 @@ export class DocumentCreator {
         });
 
         document.addSection({
+            margins: {
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
+                headers: null,
+                footers: null
+            },
             children: [table],
         });
 
