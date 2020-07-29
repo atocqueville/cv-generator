@@ -1,5 +1,20 @@
 import * as fs from "fs";
-import { AlignmentType, Media, Document, HeightRule, HeadingLevel, Paragraph, TabStopPosition, TabStopType, TextRun, Table, TableRow, TableCell, WidthType } from "docx";
+import {
+  AlignmentType,
+  Media,
+  Document,
+  HeightRule,
+  HeadingLevel,
+  Paragraph,
+  TabStopPosition,
+  TabStopType,
+  TextRun,
+  Table,
+  TableRow,
+  TableCell,
+  WidthType,
+  BorderStyle,
+} from "docx";
 const PHONE_NUMBER = "07534563401";
 const PROFILE_URL = "https://www.linkedin.com/in/dolan1";
 const EMAIL = "docx@docx.com";
@@ -19,10 +34,14 @@ export class DocumentCreator {
               font: "Calibri",
               size: 26,
               bold: true,
-              color: "red"
+              color: "red",
             },
             paragraph: {
-              spacing: { line: 276, before: 20 * 72 * 0.1, after: 20 * 72 * 0.05 },
+              spacing: {
+                line: 276,
+                before: 20 * 72 * 0.1,
+                after: 20 * 72 * 0.05,
+              },
               rightTabStop: TabStopPosition.MAX,
               leftTabStop: 453.543307087,
             },
@@ -37,7 +56,7 @@ export class DocumentCreator {
               font: "Calibri",
               size: 36,
               bold: true,
-              color: "white"
+              color: "white",
             },
           },
           {
@@ -49,7 +68,7 @@ export class DocumentCreator {
             run: {
               font: "Calibri",
               size: 36,
-              color: "white"
+              color: "white",
             },
           },
           {
@@ -61,19 +80,23 @@ export class DocumentCreator {
               size: 1,
             },
           },
-        ]
-      }
+        ],
+      },
     });
 
-    const image = Media.addImage(document, fs.readFileSync("src/images/chien.png"), 200, 200, {
-
-    });
+    const image = Media.addImage(
+      document,
+      fs.readFileSync("src/images/chien.png"),
+      200,
+      200,
+      {}
+    );
 
     const tableRow = new TableRow({
       height: {
         height: 16800,
         rule: HeightRule.EXACT,
-        cantSplit: true
+        cantSplit: true,
       },
       children: [
         new TableCell({
@@ -81,8 +104,20 @@ export class DocumentCreator {
             size: 35,
             type: WidthType.PERCENTAGE,
           },
+          borders: {
+            bottom: {
+              style: BorderStyle.NONE,
+              size: 0,
+              color: "889900",
+            },
+            right: {
+              style: BorderStyle.NONE,
+              size: 0,
+              color: "889900",
+            },
+          },
           shading: {
-            fill: "#05BEC0"
+            fill: "#05BEC0",
           },
           children: [
             new Paragraph({
@@ -108,8 +143,8 @@ export class DocumentCreator {
                   size: 20,
                   space: 1,
                   value: "single",
-                }
-              }
+                },
+              },
             }),
             new Paragraph({
               text: "WEB DEVELOPER",
@@ -124,14 +159,37 @@ export class DocumentCreator {
             size: 65,
             type: WidthType.PERCENTAGE,
           },
+          borders: {
+            bottom: {
+              style: BorderStyle.NONE,
+              size: 0,
+              color: "889900",
+            },
+            left: {
+              style: BorderStyle.NONE,
+              size: 0,
+              color: "889900",
+            },
+          },
           children: [
             this.createHeading("Education"),
             ...educations
               .map((education) => {
                 const arr = [];
-                arr.push(this.createInstitutionHeader(education.schoolName, `${education.startDate.year} - ${education.endDate.year}`));
-                arr.push(this.createRoleText(`${education.fieldOfStudy} - ${education.degree}`));
-                const bulletPoints = this.splitParagraphIntoBullets(education.notes);
+                arr.push(
+                  this.createInstitutionHeader(
+                    education.schoolName,
+                    `${education.startDate.year} - ${education.endDate.year}`
+                  )
+                );
+                arr.push(
+                  this.createRoleText(
+                    `${education.fieldOfStudy} - ${education.degree}`
+                  )
+                );
+                const bulletPoints = this.splitParagraphIntoBullets(
+                  education.notes
+                );
                 bulletPoints.forEach((bulletPoint) => {
                   arr.push(this.createBullet(bulletPoint));
                 });
@@ -155,13 +213,13 @@ export class DocumentCreator {
         bottom: 0,
         left: 0,
         headers: null,
-        footers: null
+        footers: null,
       },
       children: [
         table,
         new Paragraph({
           style: "emptyPara",
-        })
+        }),
       ],
     });
 
@@ -172,7 +230,9 @@ export class DocumentCreator {
     return new Paragraph({
       alignment: AlignmentType.CENTER,
       children: [
-        new TextRun(`Mobile: ${phoneNumber} | LinkedIn: ${profileUrl} | Email: ${email}`),
+        new TextRun(
+          `Mobile: ${phoneNumber} | LinkedIn: ${profileUrl} | Email: ${email}`
+        ),
         new TextRun("Address: 58 Elm Avenue, Kent ME4 6ER, UK").break(),
       ],
     });
@@ -237,7 +297,9 @@ export class DocumentCreator {
 
   createSkillList(skills) {
     return new Paragraph({
-      children: [new TextRun(skills.map((skill) => skill.name).join(", ") + ".")],
+      children: [
+        new TextRun(skills.map((skill) => skill.name).join(", ") + "."),
+      ],
     });
   }
 
@@ -249,7 +311,7 @@ export class DocumentCreator {
           bullet: {
             level: 0,
           },
-        }),
+        })
     );
   }
 
@@ -264,8 +326,11 @@ export class DocumentCreator {
   }
 
   createPositionDateText(startDate, endDate, isCurrent) {
-    const startDateText = this.getMonthFromInt(startDate.month) + ". " + startDate.year;
-    const endDateText = isCurrent ? "Present" : `${this.getMonthFromInt(endDate.month)}. ${endDate.year}`;
+    const startDateText =
+      this.getMonthFromInt(startDate.month) + ". " + startDate.year;
+    const endDateText = isCurrent
+      ? "Present"
+      : `${this.getMonthFromInt(endDate.month)}. ${endDate.year}`;
 
     return `${startDateText} - ${endDateText}`;
   }
