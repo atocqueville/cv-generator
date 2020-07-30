@@ -49,7 +49,7 @@ export default function(document) {
             size: 20,
             space: 1,
             value: "single",
-          },
+          }
         },
       }),
       new Paragraph({

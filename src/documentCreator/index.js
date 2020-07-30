@@ -22,7 +22,6 @@ export default class DocumentCreator {
       height: {
         height: 16826,
         rule: HeightRule.EXACT,
-        cantSplit: true,
       },
       children: [
         createLeftColumn(this.doc),

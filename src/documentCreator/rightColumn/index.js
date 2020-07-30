@@ -15,8 +15,6 @@ export default function(document) {
       new Paragraph({
         text: "cece pd",
         heading: HeadingLevel.HEADING_1,
-        thematicBreak: true,
-        style: "normalPara",
       })
     ]
   })
