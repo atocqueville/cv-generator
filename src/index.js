@@ -1,17 +1,12 @@
 import * as fs from "fs";
 import { Packer } from "docx";
 
-import { experiences, education, skills, achievements } from "./data/categories.js";
-import { DocumentCreator } from "./data/document.js";
+import DocumentCreator from "./documentCreator";
+import styles from './documentCreator/styles';
 
-const documentCreator = new DocumentCreator();
-const doc = documentCreator.create([
-  experiences,
-  education,
-  skills,
-  achievements
-]);
+const documentCreator = new DocumentCreator(styles);
+documentCreator.create();
 
-Packer.toBuffer(doc).then((buffer) => {
+Packer.toBuffer(documentCreator.doc).then((buffer) => {
   fs.writeFileSync("cv.docx", buffer);
 });
