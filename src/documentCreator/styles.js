@@ -43,6 +43,16 @@ export default {
       },
     },
     {
+      id: "leftSubHeader",
+      name: "leftSubHeader",
+      quickFormat: true,
+      run: {
+        font: "Calibri",
+        size: 26,
+        color: "white",
+      },
+    },
+    {
       id: "emptyPara",
       name: "empty",
       run: {

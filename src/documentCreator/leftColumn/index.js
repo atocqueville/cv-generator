@@ -6,11 +6,8 @@ import {
   TableCell,
   WidthType,
   Media,
-  TextRun,
-  Table,
-  TableRow,
 } from "docx";
-import { noBorders } from "../styles";
+import createTable from './aboutTable';
 
 export default function(document) {
   const photo = Media.addImage(
@@ -73,34 +70,11 @@ export default function(document) {
           after: 700
         }
       }),
-      new Table({
-        rows: [
-          new TableRow({
-            children: [
-              new TableCell({
-                children: [
-                  new Paragraph({ children: [contact], indent: { left: 500 } })
-                ]
-              }),
-              new TableCell({
-                children: [
-                  new Paragraph({
-                    text: "Contact",
-                    style: "leftHeader",
-                    heading: HeadingLevel.HEADING_3,
-                    indent: { left: 150 },
-                    spacing: {
-                      before: 100
-                    }
-                  })
-                ]
-              }),
-            ],
-          })
-        ],
-        cantSplit: true,
-        borders: noBorders,
-      }),
+      createTable(contact, "Contact", [
+        {icon: contact, text: "alex.detocqueville@gmail.com"},
+        {icon: contact, text: "06 17 67 62 72"},
+        {icon: contact, text: "atocqueville"},
+      ])
     ],
   })
 } 
