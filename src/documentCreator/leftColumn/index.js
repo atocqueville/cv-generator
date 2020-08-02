@@ -13,16 +13,24 @@ export default function(document) {
   const photo = Media.addImage(
     document,
     fs.readFileSync("src/documentCreator/images/chien.png"),
-    200,
-    200,
+    180,
+    180,
     {}
   );
 
-  const contact = Media.addImage(
+  const contactIcon = Media.addImage(
     document,
     fs.readFileSync("src/documentCreator/images/contact.png"),
     40,
     40,
+    {}
+  );
+
+  const mailIcon = Media.addImage(
+    document,
+    fs.readFileSync("src/documentCreator/images/mail.png"),
+    20,
+    20,
     {}
   );
 
@@ -70,10 +78,10 @@ export default function(document) {
           after: 700
         }
       }),
-      createTable(contact, "Contact", [
-        {icon: contact, text: "alex.detocqueville@gmail.com"},
-        {icon: contact, text: "06 17 67 62 72"},
-        {icon: contact, text: "atocqueville"},
+      createTable(contactIcon, "Contact", [
+        {icon: mailIcon, text: "alex.detocqueville@gmail.com"},
+        {icon: mailIcon, text: "06 17 67 62 72"},
+        {icon: mailIcon, text: "atocqueville"},
       ])
     ],
   })

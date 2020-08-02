@@ -48,7 +48,7 @@ export default {
       quickFormat: true,
       run: {
         font: "Calibri",
-        size: 26,
+        size: 24,
         color: "white",
       },
     },

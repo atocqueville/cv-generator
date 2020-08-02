@@ -15,7 +15,7 @@ export default function(icon, text, subContent) {
         children: [
           new TableCell({
             children: [
-              new Paragraph({ children: [icon], indent: { left: 500 } })
+              new Paragraph({ children: [icon],  indent: { left: 100 } })
             ],
             verticalAlign: VerticalAlign.CENTER
           }),
@@ -24,17 +24,20 @@ export default function(icon, text, subContent) {
               new Paragraph({
                 text,
                 style: "leftHeader",
-                heading: HeadingLevel.HEADING_3,
-                indent: { left: 150 }
+                heading: HeadingLevel.HEADING_3
               })
             ],
             verticalAlign: VerticalAlign.CENTER
           }),
         ],
-        height: 150
+        height: {
+          height: 700,
+          rule: "exact"
+        }
       }),
       ...subContent.map(subRow => createSubRow(subRow))
     ],
+    alignment: "center",
     cantSplit: true,
     borders: noBorders,
   })
@@ -45,22 +48,24 @@ function createSubRow({ icon, text }) {
     children: [
       new TableCell({
         children: [
-          new Paragraph({ children: [icon], indent: { left: 300 } })
+          new Paragraph({ children: [icon] })
         ],
-        verticalAlign: VerticalAlign.CENTER
+        verticalAlign: VerticalAlign.CENTER,
       }),
       new TableCell({
         children: [
           new Paragraph({
             text,
             style: "leftSubHeader",
-            heading: HeadingLevel.HEADING_3,
-            indent: { left: 50 }
+            heading: HeadingLevel.HEADING_3
           })
         ],
-        verticalAlign: VerticalAlign.CENTER
+        verticalAlign: VerticalAlign.CENTER,
       }),
     ],
-    height: 150
+    height: {
+      height: 550,
+      rule: "exact"
+    }
   })
 }
