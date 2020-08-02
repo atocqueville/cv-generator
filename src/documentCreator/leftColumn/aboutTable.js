@@ -5,6 +5,7 @@ import {
   Table,
   TableRow,
   VerticalAlign,
+  AlignmentType,
 } from "docx";
 import { noBorders } from "../styles";
 
@@ -15,7 +16,7 @@ export default function(icon, text, subContent) {
         children: [
           new TableCell({
             children: [
-              new Paragraph({ children: [icon],  indent: { left: 100 } })
+              new Paragraph({ children: [icon] })
             ],
             verticalAlign: VerticalAlign.CENTER
           }),
@@ -48,7 +49,7 @@ function createSubRow({ icon, text }) {
     children: [
       new TableCell({
         children: [
-          new Paragraph({ children: [icon] })
+          new Paragraph({ children: [icon], alignment: AlignmentType.CENTER })
         ],
         verticalAlign: VerticalAlign.CENTER,
       }),
