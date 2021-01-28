@@ -1,12 +1,17 @@
-import * as fs from "fs";
-import { Packer } from "docx";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-import DocumentCreator from "./documentCreator";
-import styles from './documentCreator/styles';
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
-const documentCreator = new DocumentCreator(styles);
-documentCreator.create();
-
-Packer.toBuffer(documentCreator.doc).then((buffer) => {
-  fs.writeFileSync("cv.docx", buffer);
-});
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
