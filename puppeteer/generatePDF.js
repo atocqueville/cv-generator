@@ -7,6 +7,7 @@ async function generate() {
   await page.pdf({
     path: "./generated/my-cv.pdf",
     format: "A4",
+    printBackground: true,
   });
   await browser.close();
   console.log("pdf generated");

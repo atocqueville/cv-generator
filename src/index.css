@@ -1,13 +1,93 @@
+html {
+  -webkit-print-color-adjust: exact;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    "Metropolis", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+@font-face {
+  font-family: "Metropolis";
+  font-style: normal;
+  font-weight: normal;
+  src: url("./fonts/Metropolis-Black-Italic-900.otf") format("otf"),
+    url("./fonts/Metropolis-Medium-500.otf") format("otf"),
+    url("./fonts/Metropolis-Regular-400.otf") format("otf"),
+    url("./fonts/Metropolis\ Light\ Italic\ 400.otf") format("otf");
+}
+
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+  }
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  @page :first {
+    background: linear-gradient(90deg, #04bdbf 35%, #ffffff 35%);
+  }
+
+  @media screen {
+    body {
+      background-color: var(--color-background);
+    }
+
+    .pagedjs_pages {
+      margin: 0 auto;
+    }
+
+    .pagedjs_page {
+      border: 1px solid black;
+      background-color: var(--color-paper);
+      box-shadow: 0 0 0 1px var(--color-pageBox);
+      margin: 0 auto;
+      flex-shrink: 0;
+      flex-grow: 0;
+
+      margin-top: 10mm;
+    }
+
+    .pagedjs_ .pagedjs_page:last-of-type {
+      margin-bottom: 10mm;
+    }
+
+    /* show the margin-box */
+
+    .pagedjs_margin-top-left-corner-holder,
+    .pagedjs_margin-top,
+    .pagedjs_margin-top-left,
+    .pagedjs_margin-top-center,
+    .pagedjs_margin-top-right,
+    .pagedjs_margin-top-right-corner-holder,
+    .pagedjs_margin-bottom-left-corner-holder,
+    .pagedjs_margin-bottom,
+    .pagedjs_margin-bottom-left,
+    .pagedjs_margin-bottom-center,
+    .pagedjs_margin-bottom-right,
+    .pagedjs_margin-bottom-right-corner-holder,
+    .pagedjs_margin-right,
+    .pagedjs_margin-right-top,
+    .pagedjs_margin-right-middle,
+    .pagedjs_margin-right-bottom,
+    .pagedjs_margin-left,
+    .pagedjs_margin-left-top,
+    .pagedjs_margin-left-middle,
+    .pagedjs_margin-left-bottom {
+      box-shadow: 0 0 0 1px inset var(--color-marginBox);
+    }
+  }
 }
