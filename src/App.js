@@ -6,6 +6,7 @@ function App() {
   return (
     <div style={{ display: "flex" }}>
       <LeftColumn />
+      {/* breakBefore: "column" */}
       <div className="right">Partie de droite</div>
     </div>
   );
