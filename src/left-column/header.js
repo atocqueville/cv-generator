@@ -12,7 +12,6 @@ function Header() {
           margin: "20px 0 10px 0",
           fontSize: 18,
           fontWeight: 500,
-          color: "white",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -28,19 +27,19 @@ function Header() {
           border: "2px solid white",
           borderRadius: "50px 0 0 50px",
         }}
-      ></div>
+      />
       <div
         style={{
           margin: "20px 0 10px 0",
           fontSize: 18,
           fontWeight: 400,
-          color: "white",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
         }}
       >
-        INGÉNIEUR LOGICIEL
+        <span>INGÉNIEUR LOGICIEL</span>
+        <span>EN FREELANCE</span>
       </div>
     </div>
   );

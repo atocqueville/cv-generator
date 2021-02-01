@@ -1,17 +1,23 @@
 import React from "react";
-import photo from "../assets/profile.png";
+import profileIcon from "../assets/profile.png";
 
 function Profile() {
   return (
-    <div style={{ margin: "40px 0" }}>
-      <div style={{ display: "flex", alignItems: "center", marginLeft: 30 }}>
-        <img src={photo} style={{ width: 30 }} alt="profile" />
+    <div style={{ margin: "50px 0" }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          marginLeft: 15,
+          marginBottom: 30,
+        }}
+      >
+        <img src={profileIcon} style={{ width: 40 }} alt="profile" />
         <div
           style={{
             marginLeft: 15,
             fontSize: 18,
             fontWeight: 400,
-            color: "white",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -19,6 +25,13 @@ function Profile() {
         >
           Profil
         </div>
+      </div>
+      <div style={{ fontWeight: 100, fontSize: 16 }}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a felis
+        aliquet, bibendum enim eget, tempus ex. Cras sollicitudin, velit eu
+        sollicitudin elementum, leo sapien imperdiet massa, vel commodo metus
+        lectus quis turpis. Sed convallis in turpis ac cursus. Aliquam
+        vestibulum urna accumsan velit efficitur
       </div>
     </div>
   );
