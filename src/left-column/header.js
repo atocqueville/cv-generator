@@ -22,10 +22,10 @@ function Header() {
       </div>
       <div
         style={{
-          width: "100%",
           margin: "10px 0 10px 10px",
           border: "2px solid white",
           borderRadius: "50px 0 0 50px",
+          background: "white",
         }}
       />
       <div
