@@ -9,13 +9,12 @@ function RightColumn() {
       style={{
         display: "flex",
         flexDirection: "column",
-        flex: "1 0 auto",
         margin: "30px 70px 30px 60px",
       }}
     >
       <Formation />
-      <Employment />
       <Skills />
+      <Employment />
     </div>
   );
 }

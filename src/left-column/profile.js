@@ -27,7 +27,7 @@ function Profile() {
         </div>
       </div>
       <div style={{ fontWeight: 100, fontSize: 16 }}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a felis
+        Lorem ipsum sit amet, consectetur adipiscing elit. Integer a felis
         aliquet, bibendum enim eget, tempus ex. Cras sollicitudin, velit eu
         sollicitudin elementum, leo sapien imperdiet massa, vel commodo metus
         lectus quis turpis. Sed convallis in turpis ac cursus. Aliquam
