@@ -18,6 +18,7 @@ function Formation() {
       divers: ["Génie Logiciel"],
     },
   ];
+
   return (
     <div>
       <SectionTitle icon={graduationIcon} text="Formation" />

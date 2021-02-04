@@ -11,8 +11,8 @@ function Employment() {
       degree: "Développement Angular",
       divers: [
         "TMA sur l’ensemble des fonctionnalités, utilisation de NGRX pour la persistance des data",
-        "Interface de plusieurs plateformes B2B pour des éleveurs ou des vétérinaires",
-        "Équipe de 8 développeurs en méthodologie Agile Scrum/Kanban",
+        "Interface de plusieurs plateformes B2B pour des éleveurs canins ou des vétérinaires",
+        "8 développeurs en méthode Agile Scrum/Kanban",
       ],
     },
     {
@@ -30,17 +30,8 @@ function Employment() {
       location: "Safran Electronics & Defense",
       degree: "Développement React",
       divers: [
-        "Equipe de 5 développeurs en méthodologie Agile Extreme programming",
-      ],
-    },
-    {
-      period: "Avril – Aout 2017 (5 mois) Sopra Steria",
-      location: "Sopra Steria / Natixis",
-      degree: "Développement Angular",
-      divers: [
-        "Formulaires responsive avec bibliothèque Material Design",
-        "Fonctions upload, stockage, sécurisation de fichiers avec Spring data",
-        "Equipe de 6 développeurs en méthodologie Agile Scrum",
+        "Réalisation de l'interface d'une centrale intertielle",
+        "5 développeurs en méthode Agile Extreme programming",
       ],
     },
   ];
